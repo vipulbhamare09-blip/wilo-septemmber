@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { SystemDashboard } from "./SystemDashboard";
 import { Card } from "@/components/ui/card";
@@ -585,30 +586,35 @@ export function WiloSimulation() {
       <div className="container mx-auto max-w-7xl px-4 py-4 space-y-6">
         {/* Top Header & Navigation */}
         <Card className="border-0 bg-gradient-primary p-6 text-white shadow-xl">
-          <div className="relative">
-            <div className="absolute right-0 top-0 flex items-center gap-2">
-              <Button
-                onClick={handleTriggerEmergencyStop}
-                variant={emergencyStopActive ? "outline" : "destructive"}
-                size="sm"
-                className="flex items-center gap-1.5 font-bold uppercase tracking-wider text-xs border-white/40 shadow-sm"
-              >
-                <ShieldAlert className="h-4 w-4" />
-                {emergencyStopActive ? "E-STOP ACTIVE" : "E-STOP 🔴"}
-              </Button>
-              <AuthIndicator />
-              <Button
-                onClick={() => navigate("/admin")}
-                variant="secondary"
-                size="sm"
-                className="flex items-center gap-2 border-white/30 bg-white/20 text-white hover:bg-white/30"
-              >
-                <Settings className="h-4 w-4" />
-                Admin
-              </Button>
+          <div>
+            <div className="flex flex-wrap items-center justify-between gap-3 mb-4 pb-3 border-b border-white/15">
+              <div className="flex items-center gap-2">
+                <span className="font-bold tracking-wider text-white text-xs uppercase bg-white/20 px-2.5 py-1 rounded">Wilo Smart Flow</span>
+              </div>
+              <div className="flex items-center gap-2 flex-wrap">
+                <Button
+                  onClick={handleTriggerEmergencyStop}
+                  variant={emergencyStopActive ? "outline" : "destructive"}
+                  size="sm"
+                  className="flex items-center gap-1.5 font-bold uppercase tracking-wider text-xs border-white/40 shadow-sm"
+                >
+                  <ShieldAlert className="h-4 w-4" />
+                  {emergencyStopActive ? "E-STOP ACTIVE" : "E-STOP 🔴"}
+                </Button>
+                <AuthIndicator />
+                <Button
+                  onClick={() => navigate("/admin")}
+                  variant="secondary"
+                  size="sm"
+                  className="flex items-center gap-2 border-white/30 bg-white/20 text-white hover:bg-white/30"
+                >
+                  <Settings className="h-4 w-4" />
+                  Admin
+                </Button>
+              </div>
             </div>
             <div className="text-center">
-              <h1 className="text-3xl font-bold mb-2">Wilo AI Water Transfer System</h1>
+              <h1 className="text-2xl sm:text-3xl font-bold mb-2">Wilo AI Water Transfer System</h1>
               <div className="mt-2 flex items-center justify-center gap-4">
                 <div className="inline-flex items-center rounded-full bg-white/10 p-1">
                   <button

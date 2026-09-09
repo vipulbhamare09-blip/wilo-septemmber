@@ -23,13 +23,15 @@ interface SystemDashboardProps {
 }
 
 export function SystemDashboard({ systemStatus, aiPredictions }: SystemDashboardProps) {
-  const getSensorVariant = (health: string) => {
+  const getSensorVariant = (health?: string) => {
+    if (!health) return "error";
     if (health.includes("Live") || health.includes("Active") || health.includes("OK")) return "success";
     if (health.includes("waiting") || health.includes("Waiting")) return "warning";
     return "error";
   };
 
-  const getReliabilityVariant = (reliability: string) => {
+  const getReliabilityVariant = (reliability?: string) => {
+    if (!reliability) return "error";
     if (reliability === "High") return "success";
     if (reliability === "Medium") return "warning";
     return "error";

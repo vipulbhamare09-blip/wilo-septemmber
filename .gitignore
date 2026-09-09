@@ -200,6 +200,7 @@ frontend/prodserver.log
 frontend/prodserver-3001.log
 dashboard/node_modules/
 dashboard/dist/
+*.tsbuildinfo
 tui/node_modules/
 
 # Local Codex skill artifacts
